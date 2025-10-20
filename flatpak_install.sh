@@ -34,23 +34,22 @@ PACKAGES=(
 	net.lutris.Lutris
 	org.gnome.Connections
 	org.torproject.torbrowser-launcher
+    org.gnome.Boxes
 )
 
-echo "Updating package lists..."
-sudo apt update -y
+echo "Updating package lists..." 
+sudo apt update -y 
 
-echo "Installing packages..."
-for package in ${PACKAGES[@]}; do
-	echo "Installing @package..."
-	if flatpak install flathub -y "$package"; then
-		echo "$package installed successfully."
-	else
-		echo "Failed to install $package."
-	fi
-done
+echo "Installing packages..." 
+for package in ${PACKAGES[@]}; do 
+    echo "Installing @package..." 
+    if flatpak install flathub -y "$package"; 
+    then echo "$package installed successfully." 
+    else echo "Failed to install $package." 
+    fi 
+done 
 
 echo "All done!"
-
 
 
 

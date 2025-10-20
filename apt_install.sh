@@ -31,6 +31,7 @@ PACKAGES=(
 	gstreamer1.0-gtk3
 	gstreamer1.0-qt5
 	gstreamer1.0-pulseaudio
+    # für neovim
 )
 
 echo "Updating package lists..."
