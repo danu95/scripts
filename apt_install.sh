@@ -15,8 +15,13 @@ PACKAGES=(
 	btop
 	bat
 	lsd
-	ripgrep
 	vim-gtk3
+    # die folgenden packete sind relevant für neovim 
+    ripgrep
+    make
+    gcc
+    unzip
+    xclip
 	# die folgenden packete sind zum abspielen von medien in libre office usw.
 	libgstreamer1.0-0
 	gstreamer1.0-plugins-base
