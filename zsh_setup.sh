@@ -66,6 +66,7 @@ declare -A PLUGINS_TO_CLONE=(
     ["zsh-vi-mode"]="https://github.com/jeffreytse/zsh-vi-mode.git"
     ["zsh-autosuggestions"]="https://github.com/zsh-users/zsh-autosuggestions.git"
     ["zsh-syntax-highlighting"]="https://github.com/zsh-users/zsh-syntax-highlighting.git"
+    ["zsh-autocomplete"]="https://github.com/marlonrichert/zsh-autocomplete.git"
 )
 
 for plugin in "${!PLUGINS_TO_CLONE[@]}"; do
@@ -80,7 +81,7 @@ done
 
 # ---------------- 5️⃣ Update .zshrc plugins line ----------------
 ZSHRC="$USER_HOME/.zshrc"
-CUSTOM_PLUGINS="git zsh-bat you-should-use zsh-vi-mode zsh-autosuggestions zsh-syntax-highlighting"
+CUSTOM_PLUGINS="git zsh-bat you-should-use zsh-vi-mode zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete"
 
 if [ -f "$ZSHRC" ]; then
     if grep -q "^[[:space:]]*plugins=" "$ZSHRC"; then
