@@ -1,8 +1,20 @@
 
 
+# Ignore everything by default
 *
 
+# Allow shell scripts
 !*.sh
+
+# Allow this gitignore file
 !.gitignore
+
+# Allow the kickstart_modular directory
+!kickstart_modular/
+!kickstart_modular/**
+
+
+
+
 
 
