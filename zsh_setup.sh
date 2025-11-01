@@ -6,7 +6,7 @@
 # custom plugins, and Oh My Posh, safely handling sudo.
 # ---------------------------------------------------------
 
-set -euo pipefail
+set -euxo pipefail
 
 # ---------------- Auto-reinvoke with Bash ----------------
 if [ -z "${BASH_VERSION:-}" ]; then
@@ -14,18 +14,8 @@ if [ -z "${BASH_VERSION:-}" ]; then
     exec bash "$0" "$@"
 fi
 
-# ---------------- Detect real user for sudo ----------------
-if [ "$EUID" -eq 0 ] && [ -n "${SUDO_USER:-}" ]; then
-    REAL_USER="$SUDO_USER"
-    USER_HOME=$(eval echo "~$REAL_USER")
-else
-    REAL_USER="$USER"
-    USER_HOME="$HOME"
-fi
-echo "🔹 Running user-specific actions for $REAL_USER ($USER_HOME)"
-
 # ---------------- 1️⃣ Detect current login shell ----------------
-CURRENT_SHELL=$(getent passwd "$REAL_USER" | cut -d: -f7)
+CURRENT_SHELL=$(getent passwd "$USER" | cut -d: -f7)
 ZSH_PATH=$(command -v zsh)
 
 echo "🔹 Current login shell: $CURRENT_SHELL"
@@ -33,31 +23,30 @@ echo "🔹 Detected Zsh path: $ZSH_PATH"
 
 # ---------------- 2️⃣ Switch to Zsh if needed ----------------
 if [[ "$CURRENT_SHELL" != "$ZSH_PATH" ]]; then
-    echo "🔄 Changing default shell to Zsh for $REAL_USER..."
-    if chsh -s "$ZSH_PATH" "$REAL_USER"; then
+    echo "🔄 Changing default shell to Zsh for $USER..."
+    if chsh -s "$ZSH_PATH" "$USER"; then
         echo "✅ Default shell changed successfully."
-        echo "🔹 Updated login shell: $(getent passwd "$REAL_USER" | cut -d: -f7)"
+        echo "🔹 Updated login shell: $(getent passwd "$USER" | cut -d: -f7)"
         echo "Please log out and back in for the change to take effect."
     else
-        echo "⚠️ Failed to change shell. You may need sudo:"
-        echo "    sudo chsh -s \"$ZSH_PATH\" $REAL_USER"
+        echo "⚠️ Failed to change shell."
         exit 1
     fi
 else
-    echo "✅ Zsh is already the default shell for $REAL_USER."
+    echo "✅ Zsh is already the default shell for $USER."
 fi
 
 # ---------------- 3️⃣ Install Oh My Zsh if missing ----------------
-if [ ! -d "$USER_HOME/.oh-my-zsh" ]; then
-    echo "🚀 Installing Oh My Zsh for $REAL_USER..."
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    echo "🚀 Installing Oh My Zsh for $USER..."
     RUNZSH=no KEEP_ZSHRC=yes \
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     echo "✅ Oh My Zsh installed."
 else
-    echo "ℹ️ Oh My Zsh is already installed for $REAL_USER."
+    echo "ℹ️ Oh My Zsh is already installed for $USER."
 fi
 
-ZSH_CUSTOM="${ZSH_CUSTOM:-$USER_HOME/.oh-my-zsh/custom}"
+ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 
 # ---------------- 4️⃣ Clone custom plugins ----------------
 declare -A PLUGINS_TO_CLONE=(
@@ -80,7 +69,7 @@ for plugin in "${!PLUGINS_TO_CLONE[@]}"; do
 done
 
 # ---------------- 5️⃣ Update .zshrc plugins line ----------------
-ZSHRC="$USER_HOME/.zshrc"
+ZSHRC="$HOME/.zshrc"
 CUSTOM_PLUGINS="git zsh-bat you-should-use zsh-vi-mode zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete"
 
 if [ -f "$ZSHRC" ]; then
@@ -97,20 +86,12 @@ fi
 
 
 # ---------------- 6️⃣ Initialize Oh My Posh ----------------
-# Determine real user's home if running via sudo
-if [ "$EUID" -eq 0 ] && [ -n "${SUDO_USER:-}" ]; then
-    REAL_USER="$SUDO_USER"
-    USER_HOME=$(eval echo "~$REAL_USER")
-else
-    REAL_USER="$USER"
-    USER_HOME="$HOME"
-fi
 
-ZSHRC="$USER_HOME/.zshrc"
+ZSHRC="$HOME/.zshrc"
 
 # Ensure ~/.local/bin is in PATH and add Oh My Posh init only once
 if ! grep -q "oh-my-posh init zsh" "$ZSHRC"; then
-    echo "⬇️ Adding Oh My Posh init to $ZSHRC for user $REAL_USER..."
+    echo "⬇️ Adding Oh My Posh init to $ZSHRC for user $USER..."
     cat <<'EOF' >> "$ZSHRC"
 
 # Ensure local bin is in PATH
@@ -127,8 +108,8 @@ else
 fi
 
 
-# ---------------- 🧩 Fix commented PATH line in .zshrc ----------------
-ZSHRC="$USER_HOME/.zshrc"
+# ---------------- 🧩 Uncomment PATH line in .zshrc ----------------
+ZSHRC="$HOME/.zshrc"
 
 if grep -q '^# *export PATH=\$HOME/bin:\$HOME/.local/bin:/usr/local/bin:\$PATH' "$ZSHRC"; then
     echo "🛠️  Uncommenting PATH line in $ZSHRC..."
@@ -141,3 +122,17 @@ fi
 
 
 echo "🎉 Setup complete! Run 'source $ZSHRC' or restart your terminal."
+
+
+set +euxo pipefail
+
+
+
+
+
+
+
+
+
+
+
