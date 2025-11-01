@@ -35,3 +35,6 @@ log "Copying Neovim config files from $SOURCE_DIR ..."
 cp -rT "$SOURCE_DIR" "$NVIM_CONFIG_DIR"
 
 log "Neovim configuration successfully initialized."
+
+
+

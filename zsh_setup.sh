@@ -6,7 +6,7 @@
 # custom plugins, and Oh My Posh, safely handling sudo.
 # ---------------------------------------------------------
 
-set -euxo pipefail
+set -euo pipefail
 
 # ---------------- Auto-reinvoke with Bash ----------------
 if [ -z "${BASH_VERSION:-}" ]; then
@@ -124,7 +124,7 @@ fi
 echo "🎉 Setup complete! Run 'source $ZSHRC' or restart your terminal."
 
 
-set +euxo pipefail
+set +euo pipefail
 
 
 
