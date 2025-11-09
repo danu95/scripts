@@ -74,8 +74,30 @@ vim.o.confirm = true
 
 -- vim: ts=2 sts=2 sw=2 et
 --
---
+-- Die Mehrzahl meiner Änderungen & Ergänzungen, die von Kickstart nvim abweichen.
 
-vim.o.shiftwidth = 4 -- When shifting, indent using four spaces.
-vim.o.tabstop = 4 -- Indent using four spaces.
+vim.o.encoding = "utf-8"
+vim.o.fileencoding = "utf-8"
+
+-- Enable soft line wrapping
 vim.o.wrap = true
+-- Wrap at word boundaries
+vim.o.linebreak = true
+-- vim.o.wrapmargin = 20
+-- vim.o.breakindent = true
+-- Optional: show a visual marker for wrapped lines
+vim.o.showbreak = "↪ "
+
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
+
+vim.o.tabstop = 4 -- Indent using four spaces.
+vim.opt.softtabstop = 4
+vim.o.shiftwidth = 4 -- When shifting, indent using four spaces.
+vim.opt.expandtab = true
+
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
+vim.opt.termguicolors = true
