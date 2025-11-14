@@ -23,6 +23,11 @@ PACKAGES=(
     unzip
     xclip
     fd-find
+    tree-sitter-cli
+    latexmk
+    biber
+    zathura-pdf-poppler
+    xdotool
 	# die folgenden packete sind zum abspielen von medien in libre office usw.
 	libgstreamer1.0-0
 	gstreamer1.0-plugins-base
