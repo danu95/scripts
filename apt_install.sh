@@ -22,6 +22,7 @@ PACKAGES=(
     gcc
     unzip
     xclip
+    fd-find
 	# die folgenden packete sind zum abspielen von medien in libre office usw.
 	libgstreamer1.0-0
 	gstreamer1.0-plugins-base
