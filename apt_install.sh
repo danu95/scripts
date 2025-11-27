@@ -28,6 +28,11 @@ PACKAGES=(
     biber
     zathura-pdf-poppler
     xdotool
+    # die folgenden packete sind nur für latex relevant:
+    texlive-latex-recommended
+    install texlive-latex-extra
+    texlive-fonts-extra
+    texlive-lang-european
 	# die folgenden packete sind zum abspielen von medien in libre office usw.
 	libgstreamer1.0-0
 	gstreamer1.0-plugins-base
@@ -42,7 +47,6 @@ PACKAGES=(
 	gstreamer1.0-gtk3
 	gstreamer1.0-qt5
 	gstreamer1.0-pulseaudio
-    # für neovim
 )
 
 echo "Updating package lists..."
