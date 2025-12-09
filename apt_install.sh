@@ -16,6 +16,7 @@ PACKAGES=(
 	bat
 	lsd
 	vim-gtk3
+    jq
     # die folgenden packete sind relevant für neovim 
     ripgrep
     make
