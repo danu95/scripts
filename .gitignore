@@ -9,6 +9,9 @@
 # Allow this gitignore file
 !.gitignore
 
+# Allow kbd files
+!*.kbd
+
 # Allow the kickstart_modular directory
 !kickstart_modular/
 !kickstart_modular/**

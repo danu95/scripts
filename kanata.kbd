@@ -1,0 +1,58 @@
+(deflocalkeys-win
+  ü    186
+  +    187
+  #    191
+  ö    192
+  ß    219
+  ^    220
+  ´    221
+  ä    222
+  <    226
+  -    189   ;; added german -
+)
+
+(defsrc
+  grave      1    2    3    4    5    6    7    8    9    0    Minus  Equal  bspc
+  tab        q    w    e    r    t    z    u    i    o    p    BracketLeft  BracketRight
+  caps       a    s    d    f    g    h    j    k    l    Semicolon  Quote  Backslash
+  lsft       IntlBackslash  y    x    c    v    b    n    m    Comma  Period  Slash  rsft
+  lctl       lmet       lalt              spc              ralt       rmet   rctl
+)
+
+
+
+(defcfg
+    windows-altgr cancel-lctl-press
+    process-unmapped-keys yes
+)
+(defvar
+  tap-time 200
+  hold-time 200
+)
+
+(defalias
+  caps (multi f24 (tap-hold $tap-time $hold-time esc caps))
+  a (tap-hold $tap-time $hold-time a lmet)
+  s (multi f24 (tap-hold $tap-time $hold-time s lalt))
+  d (multi f24 (tap-hold $tap-time $hold-time d lsft))
+  f (multi f24 (tap-hold $tap-time $hold-time f lctl))
+  j (multi f24 (tap-hold $tap-time $hold-time j lctl))
+  k (multi f24 (tap-hold $tap-time $hold-time k lsft))
+  l (multi f24 (tap-hold $tap-time $hold-time l ralt))
+  Semicolon (tap-hold $tap-time $hold-time Semicolon lmet)
+)
+
+
+(deflayer test
+  grave      1    2    3    4    5    6    7    8    9    0    Minus  Equal  bspc
+  tab        q    w    e    r    t    z    u    i    o    p    BracketLeft  BracketRight
+  @caps     @a   @s   @d   @f    g    h   @j   @k   @l   @Semicolon  Quote  Backslash
+  lsft       IntlBackslash  y    x    c    v    b    n    m    Comma  Period  Slash  rsft
+  lctl       lmet       lalt              spc              ralt       rmet   rctl
+)
+
+
+
+
+
+
