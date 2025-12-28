@@ -38,11 +38,6 @@ log_event() {
     echo "timestamp=${timestamp}; user/system=${user}; application=${application}; message=${message}"
 }
 
-
-# === Check the shell ===
-
-log_event "Shell info: $(ps -p $$ -o comm=)"
-
 # === Check ob es bereits einen Kanata Ordner gibt und sonst einen erstlelen ===
 
 if [[ ! -d "$INSTALL_DIR" ]]; then 
@@ -79,7 +74,9 @@ else
 
 fi
 
-
+# === Move kanata.kbd ins korrekte directory ===
+log_event "Move kanata.kbd ins korrekte directory" 
+cp ~/git/scripts/kanata.kbd ~/.config/kanata/
 
 
 

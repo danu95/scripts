@@ -12,6 +12,9 @@
 # Allow kbd files
 !*.kbd
 
+# Allow service files
+!*.service
+
 # Allow the kickstart_modular directory
 !kickstart_modular/
 !kickstart_modular/**
