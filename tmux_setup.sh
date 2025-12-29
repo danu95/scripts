@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
 # !!! shebang für bash immer auf die erste Zeile!
 
-# Das Script ist an neovim_install.sh orientiert. 
-# TODO! Verstehen wie neovim_install.sh funktioniert und es vereinfachen? nachbauen?
-# Den Anweisungen für Linux unter "https://github.com/jtroo/kanata/releases" folgen. 
-
-# Zwischendurch die Version checken und vielleicht auf eine höhre Upgraden? 
-
 # === ERROR HANDLING ===
 set -euo pipefail
 # -e : Exit immediately if any command exits with a non-zero status
@@ -14,7 +8,6 @@ set -euo pipefail
 # -o pipefail : If any command in a pipeline fails, the whole pipeline fails
 
 # === Log functions ===
-
 log() {
     local message="$*"
 

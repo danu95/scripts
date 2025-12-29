@@ -1,5 +1,3 @@
-
-
 #!/bin/bash
 set -euo pipefail
 
@@ -76,3 +74,11 @@ else
 fi
 
 echo "🎉 Setup complete! Run 'source ~/.zshrc' or restart your terminal."
+
+
+
+
+
+
+
+
