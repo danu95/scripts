@@ -15,6 +15,12 @@
 # Allow service files
 !*.service
 
+# Allow conf files
+!*.conf
+
+# Allow toml files
+!*.toml
+
 # Allow the kickstart_modular directory
 !kickstart_modular/
 !kickstart_modular/**

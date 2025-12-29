@@ -1,3 +1,6 @@
+;; https://github.com/jtroo/kanata/blob/v1.10.0/docs/config.adoc
+;; https://github.com/jtroo/kanata/blob/main/docs/locales.adoc
+
 (deflocalkeys-win
   ü    186
   +    187
@@ -8,30 +11,33 @@
   ´    221
   ä    222
   <    226
-  -    189   ;; added german -
+  -    189  
 )
 
 (defsrc
   grave      1    2    3    4    5    6    7    8    9    0    Minus  Equal  bspc
   tab        q    w    e    r    t    z    u    i    o    p    BracketLeft  BracketRight
   caps       a    s    d    f    g    h    j    k    l    Semicolon  Quote  Backslash
-  lsft       IntlBackslash  y    x    c    v    b    n    m    Comma  Period  Slash  rsft
-  lctl       lmet       lalt              spc              ralt       rmet   rctl
+  lsft       IntlBackslash  y    x    c    v    b    n    m    Comma  Period  Slash  rsft           ArrowUp
+  lctl       lmet       lalt             spc              ralt       rmet   rctl        ArrowLeft   ArrowDown   ArrowRight
 )
-
-
 
 (defcfg
     windows-altgr cancel-lctl-press
     process-unmapped-keys yes
+    concurrent-tap-hold yes
 )
+
 (defvar
   tap-time 200
   hold-time 200
+  chord-timeout 100
+
 )
 
 (defalias
   caps (multi f24 (tap-hold $tap-time $hold-time esc caps))
+  ;; Home Row Mods
   a (tap-hold $tap-time $hold-time a lmet)
   s (multi f24 (tap-hold $tap-time $hold-time s lalt))
   d (multi f24 (tap-hold $tap-time $hold-time d lsft))
@@ -40,16 +46,36 @@
   k (multi f24 (tap-hold $tap-time $hold-time k lsft))
   l (multi f24 (tap-hold $tap-time $hold-time l ralt))
   Semicolon (tap-hold $tap-time $hold-time Semicolon lmet)
+
 )
 
+(defchordsv2
+  ;; multi löst 'l' und 'q' oder 'w' gleichzeitig aus
+  ;; macro löst 'l' und 'q' oder 'w' nacheinander aus
+  ;; siehe auch die referenz zu multi oder macro unter 
+  ;; https://github.com/jtroo/kanata/blob/v1.10.0/docs/config.adoc#multi
+  ;; https://github.com/jtroo/kanata/blob/v1.10.0/docs/config.adoc#macro
 
-(deflayer test
+  (l q) (multi lalt q) 180 first-release ()
+  (l w) (multi lalt w) 180 first-release ()
+)
+
+(deflayer default
   grave      1    2    3    4    5    6    7    8    9    0    Minus  Equal  bspc
   tab        q    w    e    r    t    z    u    i    o    p    BracketLeft  BracketRight
-  @caps     @a   @s   @d   @f    g    h   @j   @k   @l   @Semicolon  Quote  Backslash
-  lsft       IntlBackslash  y    x    c    v    b    n    m    Comma  Period  Slash  rsft
-  lctl       lmet       lalt              spc              ralt       rmet   rctl
+  @caps      @a   @s   @d   @f    g    h   @j   @k   @l   @Semicolon  Quote  Backslash
+  lsft       IntlBackslash  y    x    c    v    b    n    m    Comma  Period  Slash  rsft           ArrowUp
+  lctl       lmet       lalt             spc              ralt       rmet   rctl        ArrowLeft   ArrowDown   ArrowRight
 )
+
+
+
+
+
+
+
+
+
 
 
 

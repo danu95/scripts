@@ -1,6 +1,10 @@
 #!/bin/bash
 
 PACKAGES=(
+    # nöis terminal + tmux derzue
+    alacritty
+    tmux
+    # allgemeint
 	libavcodec-extra
 	libfuse2
 	curl
