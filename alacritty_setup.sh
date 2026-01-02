@@ -28,7 +28,7 @@ log() {
 ALACRITTY_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/alacritty"
 
 # === Create folders if not yet there ===
-if [! -d "$ALACRITTY_DIR"]; then
+if [ ! -d "$ALACRITTY_DIR" ]; then
     log "create folders"
     mkdir -p "$ALACRITTY_DIR"
 else
