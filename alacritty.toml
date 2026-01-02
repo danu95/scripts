@@ -1,0 +1,81 @@
+
+# ============================================================
+# Alacritty Configuration File
+# Location: %AppData%\alacritty\alacritty.toml
+# Compatible with Alacritty >= 0.15
+# ============================================================
+
+[window]
+dynamic_title = true
+decorations = "Full"
+opacity = 1.00
+
+[font]
+size = 14.0
+
+[font.normal]
+family = "AdwaitaMono Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "AdwaitaMono Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "AdwaitaMono Nerd Font"
+style = "Italic"
+
+[font.bold_italic]
+family = "AdwaitaMono Nerd Font"
+style = "Bold Italic"
+
+
+[colors.primary]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+
+[colors.normal]
+black   = "#1e1e2e"
+red     = "#f38ba8"
+green   = "#a6e3a1"
+yellow  = "#f9e2af"
+blue    = "#89b4fa"
+magenta = "#f5c2e7"
+cyan    = "#94e2d5"
+white   = "#bac2de"
+
+[colors.bright]
+black   = "#45475a"
+red     = "#f38ba8"
+green   = "#a6e3a1"
+yellow  = "#f9e2af"
+blue    = "#89b4fa"
+magenta = "#f5c2e7"
+cyan    = "#94e2d5"
+white   = "#ffffff"
+
+
+[cursor]
+style = { shape = "Beam", blinking = "On" }
+vi_mode_style = "Block"
+unfocused_hollow = true
+
+[keyboard]
+bindings = [
+  # Toggle Vi Mode with Ctrl+Shift+Space
+  { key = "Space", mods = "Control|Shift", action = "ToggleViMode" },
+
+  # Vi Mode keybinds
+  { key = "Y", mode = "Vi", action = "Copy" },
+  { key = "V", mode = "Vi", action = "ToggleNormalSelection" },
+  { key = "V", mods = "Shift", mode = "Vi", action = "ToggleLineSelection" },
+  { key = "V", mods = "Control", mode = "Vi", action = "ToggleBlockSelection" },
+  { key = "Escape", mode = "Vi", action = "ClearSelection" },
+  { key = "Escape", mode = "Vi", action = "ToggleViMode" },
+]
+
+
+
+# If you prefer to start directly in Neovim instead, comment out above
+# and use this instead:
+# program = "C:\\appl\\scoop\\shims\\nvim.exe"

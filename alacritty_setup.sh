@@ -20,7 +20,7 @@ log() {
     local application
     application="$(basename "$0")"
 
-    echo "timestamp=${timestamp}; user/system=${user}; application=${application}; message=${message}"
+    echo "message=${message}; timestamp=${timestamp}; user/system=${user}; application=${application}"
 }
 
 # === Configuration ===
@@ -28,8 +28,12 @@ log() {
 ALACRITTY_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/alacritty"
 
 # === Create folders if not yet there ===
-log "create folders"
-mkdir -p "$ALACRITTY_DIR"
+if [! -d "$ALACRITTY_DIR"]; then
+    log "create folders"
+    mkdir -p "$ALACRITTY_DIR"
+else
+    log "folder is already created"
+fi
 
 # === Copy the alacritty.toml file into the correct place ===
 log "copy the config file into the correct directory"
