@@ -24,18 +24,8 @@ log() {
 }
 
 # === Configuration ===
-ALACRITTY_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/alacritty"
+TEST_STR="Test"
+TEST_INT=1
 
-# === Create folders if not yet there ===
-if [ ! -d "$ALACRITTY_DIR" ]; then
-    log "create folders"
-    mkdir -p "$ALACRITTY_DIR"
-else
-    log "folder is already created"
-fi
-
-# === Copy the alacritty.toml file into the correct place ===
-log "copy the config file into the correct directory"
-cp alacritty.toml "$ALACRITTY_DIR/alacritty.toml"
-
+# === SCRIPT ===
 
