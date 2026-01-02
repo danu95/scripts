@@ -228,6 +228,10 @@ return {
 							or lspconfig.util.path.dirname(fname)
 					end,
 				},
+
+				bashls = {},
+				--
+				--
 				-- clangd = {},
 				-- gopls = {},
 				-- pyright = {},

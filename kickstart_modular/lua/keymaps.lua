@@ -53,7 +53,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- vim: ts=2 sts=2 sw=2 et
 
--- Die Mehrzahl meiner Änderungen & Ergänzungen, die von Kickstart nvim abweichen.
+-- FIX:  Die Mehrzahl meiner Änderungen & Ergänzungen, die von Kickstart nvim abweichen.
+--
+--
+-- HACK: Press <leader>db to go to the dashboard
+vim.keymap.set("n", "<leader>db", ":Dashboard<CR>", { noremap = true, silent = true })
 
 -- HACK: neovim spell multiple languages
 --
