@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # ACHTUNG! der download läuft mehrere Stunden
 

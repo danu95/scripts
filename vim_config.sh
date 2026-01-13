@@ -1,5 +1,4 @@
-
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # A Bash script to create or update your ~/.vimrc file automatically.
 # It ensures your Vim configuration is consistent and includes useful defaults.

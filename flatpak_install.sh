@@ -1,5 +1,4 @@
-
-#!/bin/bash
+#!/usr/bin/env bash
 
 PACKAGES=(
 	io.appflowy.AppFlowy

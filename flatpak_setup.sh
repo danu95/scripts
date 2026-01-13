@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # einfach flatpak via apt installieren
 sudo apt install flatpak -y
