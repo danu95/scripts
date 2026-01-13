@@ -59,6 +59,17 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- HACK: Press <leader>db to go to the dashboard
 vim.keymap.set("n", "<leader>db", ":Dashboard<CR>", { noremap = true, silent = true })
 
+-- HACK: Sicherstellen, dass das quickfix fenster nur 3 Zeilen hoch ist
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "qf",
+	callback = function()
+		-- Move the quickfix window to the very bottom
+		-- vim.cmd("wincmd J")
+		-- Set the height
+		vim.cmd("resize 3")
+	end,
+})
+
 -- HACK: neovim spell multiple languages
 --
 -- Keymap to switch spelling language to English lamw25wmal
